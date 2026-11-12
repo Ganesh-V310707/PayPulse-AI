@@ -1,0 +1,11 @@
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: paypulse-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - paypulse-mongo-data:/data/db
+volumes:
+  paypulse-mongo-data:

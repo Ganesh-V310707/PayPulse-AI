@@ -1,0 +1,62 @@
+{
+  "info": {
+    "name": "PayPulse AI API",
+    "description": "Local development collection. Set baseUrl to http://localhost:5000. PayPal routes require configured Sandbox credentials and MongoDB.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000" },
+    { "key": "orderId", "value": "REPLACE_WITH_ORDER_ID" },
+    { "key": "scenario", "value": "duplicate-webhook" }
+  ],
+  "item": [
+    {
+      "name": "System",
+      "item": [
+        { "name": "Health", "request": { "method": "GET", "url": "{{baseUrl}}/api/health" } },
+        { "name": "Public config", "request": { "method": "GET", "url": "{{baseUrl}}/api/config/public" } }
+      ]
+    },
+    {
+      "name": "PayPal Sandbox",
+      "item": [
+        {
+          "name": "Create order",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"amount\": 5.00,\n  \"currency\": \"USD\",\n  \"description\": \"PayPulse Postman test\"\n}" },
+            "url": "{{baseUrl}}/api/payments/orders"
+          }
+        },
+        { "name": "Get local payment", "request": { "method": "GET", "url": "{{baseUrl}}/api/payments/{{orderId}}" } },
+        { "name": "Capture approved order", "request": { "method": "POST", "url": "{{baseUrl}}/api/payments/{{orderId}}/capture" } },
+        { "name": "Reconcile order", "request": { "method": "POST", "url": "{{baseUrl}}/api/payments/{{orderId}}/reconcile" } },
+        { "name": "AI investigation", "request": { "method": "POST", "url": "{{baseUrl}}/api/payments/{{orderId}}/investigate" } }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        { "name": "Summary", "request": { "method": "GET", "url": "{{baseUrl}}/api/dashboard/summary" } },
+        { "name": "Incidents", "request": { "method": "GET", "url": "{{baseUrl}}/api/dashboard/incidents" } },
+        { "name": "Events", "request": { "method": "GET", "url": "{{baseUrl}}/api/dashboard/events" } }
+      ]
+    },
+    {
+      "name": "Development fixtures (never real PayPal events)",
+      "item": [
+        {
+          "name": "Create local scenario",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"scenario\": \"{{scenario}}\"\n}" },
+            "url": "{{baseUrl}}/api/dev/scenarios"
+          }
+        },
+        { "name": "Clear local scenarios", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/dev/scenarios" } }
+      ]
+    }
+  ]
+}

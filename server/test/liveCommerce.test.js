@@ -1,0 +1,8 @@
+const test=require('node:test');const assert=require('node:assert/strict');
+const envFile=require.resolve('../src/config/env');require.cache[envFile]={id:envFile,filename:envFile,loaded:true,exports:{serpapiKey:'',ebayClientId:'',ebayClientSecret:'',shoppingCountry:'IN',geminiApiKey:''}};
+const {liveSearch,providerStatus,extractSearchTerms,scored,safeUrl}=require('../src/services/liveCommerceService');
+test('live search never silently substitutes demo data when provider is not configured',async()=>{const r=await liveSearch('Laptop under ₹60000',{country:'IN'});assert.equal(r.sourceInfo.mode,'NOT_CONNECTED');assert.equal(r.items.length,0);});
+test('provider readiness truthfully reports missing credentials',()=>{assert.equal(providerStatus().serpapi.configured,false);assert.equal(providerStatus().barcode.configured,true)});
+test('extracted real provider search strips currency amount but keeps device terms',()=>{const t=extractSearchTerms('I want a laptop for coding under ₹60,000',{category:'Laptops'});assert.ok(t.toLowerCase().includes('laptop'));assert.equal(t.includes('60000'),false)});
+test('normalize safe URL rejects dangerous URI schemes',()=>{assert.equal(safeUrl('javascript:alert(1)'),null);assert.equal(safeUrl('file:///etc/passwd'),null);assert.ok(safeUrl('https://example.com/item'))});
+test('relevance scores do not treat mismatched currencies as in budget',()=>{const p={name:'Laptop 16 GB RAM',description:'coding',price:900,currency:'USD',specs:['16 GB RAM'],rating:null};const r=scored(p,{keywords:['coding','laptop'],importantNeeds:[],budget:1000,currency:'INR'});assert.equal(r.budgetDelta,null);assert.ok(!r.explanation.includes('Within your budget'))});

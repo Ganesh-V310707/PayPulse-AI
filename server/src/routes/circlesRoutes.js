@@ -1,0 +1,11 @@
+const express=require('express');const {all,create,join,bid}=require('../services/circlesService');
+const router=express.Router();
+const rateLimit=require('express-rate-limit');
+const writeLimit=rateLimit({windowMs:15*60*1000,limit:12,standardHeaders:'draft-8',legacyHeaders:false});
+router.use((req,res,next)=>{if(req.method!=='GET'&&process.env.NODE_ENV==='production')return res.status(403).json({message:'Public mutation of simulated circles is disabled in production.'});next()});
+router.use(writeLimit);
+router.get('/',(_req,res)=>res.json({items:all(),demo:true,notice:'Sample users and quotes are simulated. This is not a real group buying or merchant bidding system.'}));
+router.post('/',(req,res,next)=>{try{res.status(201).json({circle:create(req.body),demo:true});}catch(e){next(e)}});
+router.post('/:id/join',(req,res,next)=>{try{res.json({circle:join(req.params.id),demo:true});}catch(e){next(e)}});
+router.post('/:id/bids',(req,res,next)=>{try{res.status(201).json({circle:bid(req.params.id,req.body),demo:true});}catch(e){next(e)}});
+module.exports=router;

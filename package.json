@@ -1,0 +1,26 @@
+{
+  "name": "paypulse-ai",
+  "version": "2.0.0",
+  "private": true,
+  "description": "PayPulse AI \u2014 AI commerce intelligence with PayPal Sandbox payment operations",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c blue,green \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+    "dev:server": "npm run dev --workspace server",
+    "dev:client": "npm run dev --workspace client",
+    "build": "npm run build --workspace client",
+    "test": "npm run test --workspace server",
+    "test:watch": "npm run test:watch --workspace server",
+    "test:core": "node --test server/test/commerce.test.js server/test/paymentState.test.js"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "concurrently": "^9.2.1"
+  }
+}

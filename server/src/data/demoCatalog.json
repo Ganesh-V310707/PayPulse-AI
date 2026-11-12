@@ -1,0 +1,556 @@
+[
+  {
+    "id": "laptop-1",
+    "name": "NovaBook Air 14",
+    "category": "Laptops",
+    "price": 54999,
+    "originalPrice": 69999,
+    "currency": "INR",
+    "tagline": "Student productivity laptop",
+    "description": "Intel Core i5 / 16 GB RAM / 512 GB SSD / 14-inch IPS",
+    "useCases": [
+      "coding",
+      "college",
+      "battery",
+      "office"
+    ],
+    "specs": [
+      "16 GB RAM",
+      "512 GB SSD",
+      "10-hour claimed battery"
+    ],
+    "warrantyMonths": 36,
+    "rating": 4.6,
+    "reviewCount": 1312,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100000",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "laptop-2",
+    "name": "ForgeBook Pro 15",
+    "category": "Laptops",
+    "price": 68999,
+    "originalPrice": 84999,
+    "currency": "INR",
+    "tagline": "Performance laptop",
+    "description": "AMD Ryzen 7 / 16 GB RAM / 1 TB SSD / 15.6-inch IPS",
+    "useCases": [
+      "coding",
+      "editing",
+      "machine learning",
+      "gaming"
+    ],
+    "specs": [
+      "Ryzen 7",
+      "16 GB RAM",
+      "1 TB SSD"
+    ],
+    "warrantyMonths": 24,
+    "rating": 4.4,
+    "reviewCount": 430,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100001",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "laptop-3",
+    "name": "PixelNote 13",
+    "category": "Laptops",
+    "price": 42999,
+    "originalPrice": 52999,
+    "currency": "INR",
+    "tagline": "Portable everyday laptop",
+    "description": "Intel Core i3 / 8 GB RAM / 256 GB SSD / 13-inch IPS",
+    "useCases": [
+      "college",
+      "travel",
+      "battery",
+      "office"
+    ],
+    "specs": [
+      "8 GB RAM",
+      "256 GB SSD",
+      "1.2 kg claimed"
+    ],
+    "warrantyMonths": 24,
+    "rating": 4.3,
+    "reviewCount": 850,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100002",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "laptop-4",
+    "name": "DevStation 16",
+    "category": "Laptops",
+    "price": 92999,
+    "originalPrice": 112999,
+    "currency": "INR",
+    "tagline": "Workstation-class demo laptop",
+    "description": "Core i7 / 32 GB RAM / 1 TB SSD / dedicated GPU",
+    "useCases": [
+      "coding",
+      "machine learning",
+      "editing",
+      "gaming"
+    ],
+    "specs": [
+      "32 GB RAM",
+      "Dedicated GPU",
+      "1 TB SSD"
+    ],
+    "warrantyMonths": 24,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100003",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "phone-1",
+    "name": "Atlas S5",
+    "category": "Phones",
+    "price": 14999,
+    "originalPrice": 18999,
+    "currency": "INR",
+    "tagline": "Value-focused smartphone",
+    "description": "6.5-inch OLED / 8 GB / 128 GB / 5000 mAh",
+    "useCases": [
+      "camera",
+      "battery",
+      "social",
+      "college"
+    ],
+    "specs": [
+      "OLED display",
+      "5000 mAh",
+      "128 GB"
+    ],
+    "warrantyMonths": 12,
+    "rating": 4.2,
+    "reviewCount": 3200,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100004",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "phone-2",
+    "name": "Orbit X Plus",
+    "category": "Phones",
+    "price": 22999,
+    "originalPrice": 27999,
+    "currency": "INR",
+    "tagline": "Photography and multitasking phone",
+    "description": "6.7-inch AMOLED / 8 GB / 256 GB / OIS",
+    "useCases": [
+      "camera",
+      "video",
+      "battery",
+      "gaming"
+    ],
+    "specs": [
+      "OIS camera",
+      "256 GB",
+      "AMOLED"
+    ],
+    "warrantyMonths": 12,
+    "rating": 4.5,
+    "reviewCount": 1300,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100005",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "phone-3",
+    "name": "Core Mini",
+    "category": "Phones",
+    "price": 9999,
+    "originalPrice": 12999,
+    "currency": "INR",
+    "tagline": "Affordable basic phone",
+    "description": "6.4-inch LCD / 6 GB / 128 GB",
+    "useCases": [
+      "college",
+      "calls",
+      "budget",
+      "social"
+    ],
+    "specs": [
+      "128 GB",
+      "5000 mAh",
+      "6 GB RAM"
+    ],
+    "warrantyMonths": 12,
+    "rating": 4.0,
+    "reviewCount": 1700,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100006",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "audio-1",
+    "name": "EchoBuds Studio",
+    "category": "Audio",
+    "price": 3999,
+    "originalPrice": 5999,
+    "currency": "INR",
+    "tagline": "Noise-cancelling earbuds",
+    "description": "ANC / Bluetooth 5.3 / 30h case battery",
+    "useCases": [
+      "music",
+      "travel",
+      "calls",
+      "gym"
+    ],
+    "specs": [
+      "ANC",
+      "30h claimed",
+      "IPX4"
+    ],
+    "warrantyMonths": 12,
+    "rating": 4.3,
+    "reviewCount": 890,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100007",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "audio-2",
+    "name": "SonicWave Over-Ear",
+    "category": "Audio",
+    "price": 6499,
+    "originalPrice": 9499,
+    "currency": "INR",
+    "tagline": "Wireless over-ear headphones",
+    "description": "ANC / 40h battery / multipoint",
+    "useCases": [
+      "music",
+      "editing",
+      "calls",
+      "travel"
+    ],
+    "specs": [
+      "ANC",
+      "40h claimed",
+      "Multipoint"
+    ],
+    "warrantyMonths": 24,
+    "rating": 4.5,
+    "reviewCount": 660,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100008",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "watch-1",
+    "name": "PulseFit Active",
+    "category": "Wearables",
+    "price": 3799,
+    "originalPrice": 4999,
+    "currency": "INR",
+    "tagline": "Fitness-focused smartwatch",
+    "description": "AMOLED / GPS / activity tracking",
+    "useCases": [
+      "fitness",
+      "gym",
+      "running",
+      "notifications"
+    ],
+    "specs": [
+      "Built-in GPS",
+      "AMOLED",
+      "Sleep tracking"
+    ],
+    "warrantyMonths": 12,
+    "rating": 4.1,
+    "reviewCount": 765,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100009",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "monitor-1",
+    "name": "ClearView 27",
+    "category": "Monitors",
+    "price": 15999,
+    "originalPrice": 19999,
+    "currency": "INR",
+    "tagline": "Productivity monitor",
+    "description": "27-inch QHD IPS / 100 Hz / USB-C",
+    "useCases": [
+      "coding",
+      "office",
+      "editing",
+      "design"
+    ],
+    "specs": [
+      "27-inch QHD",
+      "100 Hz",
+      "USB-C"
+    ],
+    "warrantyMonths": 36,
+    "rating": 4.6,
+    "reviewCount": 320,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100010",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "monitor-2",
+    "name": "ColorCraft 24",
+    "category": "Monitors",
+    "price": 8799,
+    "originalPrice": 11999,
+    "currency": "INR",
+    "tagline": "Budget desk monitor",
+    "description": "24-inch FHD IPS / 75 Hz",
+    "useCases": [
+      "college",
+      "coding",
+      "office"
+    ],
+    "specs": [
+      "24-inch FHD",
+      "IPS",
+      "75 Hz"
+    ],
+    "warrantyMonths": 36,
+    "rating": 4.4,
+    "reviewCount": 1230,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100011",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "keyboard-1",
+    "name": "KeyForge 75",
+    "category": "Accessories",
+    "price": 3499,
+    "originalPrice": 4999,
+    "currency": "INR",
+    "tagline": "Compact mechanical keyboard",
+    "description": "75% layout / USB-C / hotswap",
+    "useCases": [
+      "coding",
+      "gaming",
+      "office"
+    ],
+    "specs": [
+      "Mechanical switches",
+      "Hot-swap",
+      "USB-C"
+    ],
+    "warrantyMonths": 12,
+    "rating": 4.5,
+    "reviewCount": 430,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100012",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "mouse-1",
+    "name": "FlowPoint Wireless",
+    "category": "Accessories",
+    "price": 1299,
+    "originalPrice": 1899,
+    "currency": "INR",
+    "tagline": "Lightweight wireless mouse",
+    "description": "Bluetooth / USB receiver / rechargeable",
+    "useCases": [
+      "coding",
+      "office",
+      "travel"
+    ],
+    "specs": [
+      "Dual mode",
+      "Rechargeable",
+      "Quiet clicks"
+    ],
+    "warrantyMonths": 12,
+    "rating": 4.3,
+    "reviewCount": 940,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100013",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "camera-1",
+    "name": "VistaCam 4K",
+    "category": "Cameras",
+    "price": 34999,
+    "originalPrice": 44999,
+    "currency": "INR",
+    "tagline": "Creator-focused camera",
+    "description": "4K / optical stabilization / external mic input",
+    "useCases": [
+      "video",
+      "youtube",
+      "travel",
+      "editing"
+    ],
+    "specs": [
+      "4K video",
+      "Stabilization",
+      "Mic input"
+    ],
+    "warrantyMonths": 24,
+    "rating": 4.4,
+    "reviewCount": 211,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100014",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "power-1",
+    "name": "ChargeDock 100W",
+    "category": "Accessories",
+    "price": 2899,
+    "originalPrice": 4199,
+    "currency": "INR",
+    "tagline": "Multiport charger",
+    "description": "USB-C PD / 100 W / three outputs",
+    "useCases": [
+      "travel",
+      "laptop",
+      "phone",
+      "office"
+    ],
+    "specs": [
+      "100 W",
+      "3 ports",
+      "PD"
+    ],
+    "warrantyMonths": 12,
+    "rating": 4.3,
+    "reviewCount": 780,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100015",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "tablet-1",
+    "name": "SketchTab 11",
+    "category": "Tablets",
+    "price": 24999,
+    "originalPrice": 32999,
+    "currency": "INR",
+    "tagline": "Study and sketch tablet",
+    "description": "11-inch 2K / stylus support / 8 GB",
+    "useCases": [
+      "college",
+      "drawing",
+      "reading",
+      "notes"
+    ],
+    "specs": [
+      "2K display",
+      "Stylus support",
+      "8 GB RAM"
+    ],
+    "warrantyMonths": 24,
+    "rating": 4.3,
+    "reviewCount": 550,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100016",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  },
+  {
+    "id": "desk-1",
+    "name": "RiseDesk Compact",
+    "category": "Furniture",
+    "price": 18999,
+    "originalPrice": 24999,
+    "currency": "INR",
+    "tagline": "Height-adjustable desk",
+    "description": "Manual height adjustment / 120 cm top",
+    "useCases": [
+      "office",
+      "coding",
+      "ergonomics"
+    ],
+    "specs": [
+      "Adjustable",
+      "120 cm",
+      "Steel frame"
+    ],
+    "warrantyMonths": 24,
+    "rating": 4.2,
+    "reviewCount": 220,
+    "source": "DEMO_CATALOG",
+    "demo": true,
+    "availability": "DEMO_ONLY",
+    "productUrl": null,
+    "barcode": "DEMO100017",
+    "lastUpdated": "DEMO_FIXTURE",
+    "imageUrl": null
+  }
+]
