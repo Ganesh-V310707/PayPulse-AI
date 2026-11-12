@@ -5,8 +5,8 @@ const env = require('./config/env');
 async function start() {
   await connectDatabase();
   const app = createApp();
-  const server = app.listen(env.port, () => {
-    console.log(`\nPayPulse API listening at http://localhost:${env.port}`);
+  const server = app.listen(env.port, '0.0.0.0', () => {
+    console.log(`\nPayPulse API listening on 0.0.0.0:${env.port}`);
     console.log(`PayPal environment: ${env.paypalEnv.toUpperCase()} | Credentials: ${env.paypalConfigured ? 'configured' : 'not configured'}`);
     console.log(`MongoDB: ${require('mongoose').connection.readyState === 1 ? 'connected' : 'not connected'}`);
     console.log('Never use real payment credentials for the local hackathon demo.\n');

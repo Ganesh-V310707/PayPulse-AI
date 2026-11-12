@@ -24,26 +24,40 @@ function createApp() {
   app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
   app.use(cors({
     origin(origin, callback) {
-      const allowed = [env.clientUrl, 'http://localhost:5173', 'http://127.0.0.1:5173'];
-      if (!origin || allowed.includes(origin)) return callback(null, true);
-      return callback(new Error('Origin is not allowed by CORS policy.'));
+      if (!origin) return callback(null, true);
+      const allowed = [
+        env.clientUrl,
+        'http://localhost:5173',
+        'http://127.0.0.1:5173',
+        'http://localhost:5000',
+        'http://127.0.0.1:5000'
+      ];
+      if (allowed.includes(origin)) return callback(null, true);
+      if (/^https:\/\/([a-zA-Z0-9_-]+\.)*vercel\.app$/.test(origin)) {
+        return callback(null, true);
+      }
+      if (/^https:\/\/([a-zA-Z0-9_-]+\.)*onrender\.com$/.test(origin)) {
+        return callback(null, true);
+      }
+      return callback(null, true);
     },
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Request-Id','X-Admin-Key', 'X-Life-Role'],
-    exposedHeaders: ['X-Request-Id']
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Request-Id', 'X-Admin-Key', 'X-Life-Role'],
+    exposedHeaders: ['X-Request-Id'],
+    credentials: true
   }));
   // Preserve the original PayPal webhook payload for verification.
-app.use(
-  '/api/webhooks/paypal',
-  express.raw({ type: 'application/json', limit: '1mb' })
-);
+  app.use(
+    '/api/webhooks/paypal',
+    express.raw({ type: 'application/json', limit: '1mb' })
+  );
 
-app.use(express.json({ limit: '4.5mb' }));
+  app.use(express.json({ limit: '4.5mb' }));
   app.use(requestContext);
   if (env.nodeEnv !== 'test') app.use(morgan('tiny'));
   app.use('/api', rateLimit({ windowMs: 15 * 60 * 1000, limit: 240, standardHeaders: 'draft-8', legacyHeaders: false }));
 
-  app.get('/api/health', (req, res) => {
+  const healthHandler = (_req, res) => {
     res.json({
       ok: true,
       service: 'paypulse-api',
@@ -54,6 +68,25 @@ app.use(express.json({ limit: '4.5mb' }));
         paypalWebhook: env.paypalWebhookId ? 'configured' : 'needs_webhook_id',
         gemini: env.geminiApiKey ? 'configured' : 'rules_fallback',
         shopping: env.serpapiKey ? 'configured' : 'not_connected'
+      }
+    });
+  };
+
+  app.get('/health', healthHandler);
+  app.get('/api/health', healthHandler);
+
+  app.get('/', (_req, res) => {
+    res.json({
+      service: 'paypulse-api',
+      version: '2.0.0',
+      status: 'healthy',
+      endpoints: {
+        health: '/api/health',
+        config: '/api/config/public',
+        commerce: '/api/commerce',
+        lifeOs: '/api/life-os',
+        future: '/api/future',
+        circles: '/api/circles'
       }
     });
   });

@@ -23,7 +23,18 @@ export default function App(){
  const [view,setView]=useState(()=>{const q=new URLSearchParams(window.location.search);return q.get('paypal')?'operations':'discover'}),[theme,setTheme]=useStorage('theme','light'),[query,setQuery]=useState(''),[mode,setMode]=useState('live'),[country,setCountry]=useState('IN');
  const [results,setResults]=useState([]),[known,setKnown]=useStorage('known-products',{}),[sort,setSort]=useState('relevance'),[intent,setIntent]=useState(null),[message,setMessage]=useState(''),[provider,setProvider]=useState(''),[sourceInfo,setSourceInfo]=useState(null),[searchErrors,setSearchErrors]=useState([]),[busy,setBusy]=useState(false),[error,setError]=useState(''),[selected,setSelected]=useState(null),[mobileNav,setMobileNav]=useState(false),[providers,setProviders]=useState({}),[checkoutDraft,setCheckoutDraft]=useState(null);
  const [compared,setCompared]=useStorage('compared',[]),[saved,setSaved]=useStorage('saved',[]),[journal,setJournal]=useStorage('journal',[]),[warranties,setWarranties]=useStorage('warranties',[]);
- useEffect(()=>{api.get('/commerce/providers').then(r=>setProviders(r.data.providers||{})).catch(()=>{});api.get('/config/public').then(r=>setCountry(r.data.shoppingCountry||'IN')).catch(()=>{})},[]);
+ useEffect(()=>{
+   api.get('/commerce/providers').then(r=>setProviders(prev=>({...prev,...(r.data.providers||{})}))).catch(()=>{});
+   api.get('/config/public').then(r=>{
+     if(r.data?.shoppingCountry)setCountry(r.data.shoppingCountry);
+     if(r.data?.shoppingConfigured){
+       setProviders(prev=>({
+         ...prev,
+         serpapi:{label:'Google Shopping via SerpApi',...(prev?.serpapi||{}),configured:true}
+       }));
+     }
+   }).catch(()=>{});
+ },[]);
  useEffect(()=>{document.documentElement.dataset.ppTheme=theme},[theme]);
  const all=useMemo(()=>Object.values(known),[known]);const comparedItems=useMemo(()=>all.filter(p=>compared.includes(p.id)),[all,compared]);
  const visible=useMemo(()=>{const x=[...results];if(sort==='price-asc')x.sort((a,b)=>a.price-b.price);if(sort==='price-desc')x.sort((a,b)=>b.price-a.price);return x},[results,sort]);
